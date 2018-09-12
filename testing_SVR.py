@@ -10,9 +10,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import time
 
-dataTraining,dataTesting,alpha,alpha_star,max_data,min_data,y_prediksi,tahun = tr.main("beras")
+kom = "cabe_rawit"
+dataTraining,dataTesting,alpha,alpha_star,max_data,min_data,y_prediksi,tahun = tr.main(kom)
 # count distance for all data
-print(dataTraining)
+#print(dataTraining)
 data_normal = list(dataTraining)
 for data in dataTesting:
     data_normal.append(data)
@@ -35,7 +36,11 @@ for i in range(len(y_pred_test)):
 # denormalization from y prediction
 y_denorm_test = np.zeros_like(y_pred_test)
 for i in range(len(y_pred_test)):
-    y_denorm_test[i] = y_pred_test[i] * (max_data-min_data) + min_data
+    #y_denorm_test[i] = y_pred_test[i] * (max_data-min_data) + min_data
+    var_normalisasi = 6
+    if(kom == "kedelai"):
+        var_normalisasi = 4        
+    y_denorm_test[i] = y_prediksi[i] * pow(10,var_normalisasi)
 
 # list parameters for plotting
 y_pred_all = list(y_prediksi)
@@ -51,9 +56,25 @@ print("SIGMA = " + str(tr.sigma))
 print("LAMBDA = " + str(tr.lamda))
 print("EPSILON = " + str(tr.epsilon))
 print("cLR = " + str(tr.cLR))
+print("PROP = " + str(tr.prop))
+
+mse = tr.calc_MSE(y_pred_all, np.transpose(data_normal)[3])
+print("MSE ALL = " + str(mse))
+mse_training = tr.calc_MSE(y_prediksi, np.transpose(dataTraining)[3])
+print("MSE TRAINING = " + str(mse_training))
+mse_testing = tr.calc_MSE(y_pred_test, np.transpose(dataTesting)[3])
+print("MSE TESTING = " + str(mse_testing))
+
+mae = tr.calc_MAE(y_pred_all, np.transpose(data_normal)[3])
+print("MAE ALL = " + str(mae))
+mae_training = tr.calc_MAE(y_prediksi, np.transpose(dataTraining)[3])
+print("MAE TRAINING = " + str(mae_training))
+mae_testing = tr.calc_MAE(y_pred_test, np.transpose(dataTesting)[3])
+print("MAE TESTING = " + str(mae_testing))
 
 # plotting process
-print(y_pred_all)
+#print(np.transpose(dataTraining)[3])
+#print(np.transpose(dataTesting)[3])
 plt.plot(tahun, y_pred_all, color="red", label="Prediksi")
 plt.plot(tahun, np.transpose(data_normal)[3], color="green", label="Aktual")
 plt.legend()

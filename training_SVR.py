@@ -59,6 +59,33 @@ def normalization(data, proportion):
     dataTesting = res[int(np.floor(proportion*len(data))):len(data)]
     return dataTraining, dataTesting
 
+def decimal_normalization(data, proportion, komoditas):
+    if(komoditas == "beras"):
+        var_normalisasi = [6,7,5,6]
+    elif(komoditas == "jagung"):
+        var_normalisasi = [6,7,5,6]
+    elif(komoditas == "kedelai"):
+        var_normalisasi = [4,7,5,4]
+    elif(komoditas == "bawang_merah"):
+        var_normalisasi = [4,7,6,6]
+    elif(komoditas == "cabe_besar"):
+        var_normalisasi = [4,7,6,6]
+    else:
+        var_normalisasi = [4,7,6,6]
+    #var_normalisasi = [4,7,5,4] // kedelai
+    #var_normalisasi = [4,7,6,6]
+    res = np.zeros((len(data),len(data[0])),dtype=float)
+    #max_value = float(get_max(data))
+    #min_value = float(get_min(data))
+    for i in range(len(res)):
+        for j in range(len(res[i])):
+            #res[i][j] = (data[i][j] - min_value) / (max_value - min_value)    
+            res[i][j] = float(data[i][j]) / pow(10,var_normalisasi[j])
+            #print(res[i][j])
+    dataTraining = res[0:int(np.floor(proportion*len(data)))]    
+    dataTesting = res[int(np.floor(proportion*len(data))):len(data)]
+    return dataTraining, dataTesting
+
 # method dist to search the distance between all elements
 def get_dist(data):
     distance = np.zeros((len(data),len(data)),dtype=float)
@@ -95,6 +122,12 @@ def calc_MSE(prediction, actual):
         res[i] = np.power((actual[i] - prediction[i]),2)
     return np.average(res)
 
+def calc_MAE(prediction, actual):
+    res = np.zeros_like(prediction)
+    for i in range(len(prediction)):
+        res[i] = np.abs(actual[i] - prediction[i])
+    return np.average(res)
+
 def update_db(komoditas, d_alpha):
     conn = ms.connect(user='root', password='', host='localhost', database='estimasi')
     cursor = conn.cursor()
@@ -102,11 +135,11 @@ def update_db(komoditas, d_alpha):
     queryDelete = """Delete from """+str_alpha
     cursor.execute(queryDelete)
     add_alpha = """INSERT INTO """+str_alpha+""" VALUES (%s)"""
-    print(add_alpha)
+    #print(add_alpha)
     
     #alpha = [2, -2.000338880028326, -1.7484869882343739, -3.743523156579997, 1.7120601398098891, 7.1781298102175075, 4.256270656989639, 0.9214269066068619, -9.542214992186763, 0.2558967213865766, -1.6131547996969597, 0.10469222399301072, 3.514537248721711, -0.15861476503715854]
     for alpha_i in d_alpha:
-        print(alpha_i)
+        #print(alpha_i)
         cursor.execute(add_alpha,((alpha_i.tolist()),))
     conn.commit()
     conn.close()
@@ -127,11 +160,11 @@ def select_db(komoditas):
 
 # MAIN
 start_time = time.time()
-C_value = 10000
+C_value = 100
 cLR = 0.05
-#epsilon = 0.0001
-epsilon = 0.00001
-sigma = 0.3
+#epsilon = 0.00001
+epsilon = 0.001
+sigma = 0.5
 lamda = 0.1
 iter_max =50000
 dataTraining = []
@@ -142,10 +175,12 @@ max_data = 0
 min_data = 0
 y_prediksi = []
 tahun = []
+prop = 0.8
 def main(input_komoditas):
     komoditas = input_komoditas
     
-    #dataAll = read_csv("dataTraining.csv")
+    #dataAll = read_csv("data/dataKedelaiRange.csv")
+    #tahun = range(2004,2018)
     dataAll, tahun = select_db(komoditas)
     
     
@@ -160,7 +195,8 @@ def main(input_komoditas):
     #db.commit
     
     
-    dataTraining, dataTesting = normalization(dataAll, 1)
+    #dataTraining, dataTesting = normalization(dataAll, 1)
+    dataTraining, dataTesting = decimal_normalization(dataAll, prop, komoditas)
     x_training = ((np.array(dataTraining))[:,:3]).tolist()
     x_testing = ((np.array(dataTesting))[:,:3]).tolist()
     y_training = ((np.array(dataTraining))[:,-1]).tolist()
@@ -234,8 +270,8 @@ def main(input_komoditas):
             y_prediksi[i] = np.sum([H*(alp_s - alp) for H,alp_s,alp in zip(hessian_matrix[i],alpha_star,alpha)])
             
         if(((max(delta_alpha_star) < epsilon) and (max(delta_alpha) < epsilon)) or (x > iter_max)):
-            print(delta_alpha_star)
-            print(delta_alpha)
+            #print(delta_alpha_star)
+            #print(delta_alpha)
             d_alpha = [a-b for a,b in zip(alpha_star, alpha)]
             #print(type(d_alpha[0]))
             iterate = False
@@ -256,9 +292,16 @@ def main(input_komoditas):
     min_data = float(get_min(dataAll))
     y_denorm = np.zeros_like(y_prediksi)
     for i in range(len(y_prediksi)):
-        y_denorm[i] = y_prediksi[i] * (max_data-min_data) + min_data
+        #y_denorm[i] = y_prediksi[i] * (max_data-min_data) + min_data
+        var_normalisasi = 6
+        if(komoditas == "kedelai"):
+            var_normalisasi = 4        
+        y_denorm[i] = y_prediksi[i] * pow(10,var_normalisasi)
+        #print(y_denorm[i])
         
-    update_db(komoditas, d_alpha)
+    #update_db(komoditas, d_alpha)
+    
+    
     #dataKomoditas, tahun = select_db("beras")
     #print(dataKomoditas)
     #print(tahun)
@@ -284,4 +327,4 @@ def main(input_komoditas):
     
     #def get_hessian():
     #    return hessian_matrix
-dataTraining,dataTesting,alpha,alpha_star,max_data,min_data,y_prediksi,tahun = main("jagung")
+#dataTraining,dataTesting,alpha,alpha_star,max_data,min_data,y_prediksi,tahun = main("kedelai")

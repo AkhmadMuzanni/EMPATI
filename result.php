@@ -21,17 +21,23 @@
       3.2600614453296224);
 
     if($_POST["komoditas"] == "BERAS"){
-      $sql_alpha="SELECT * FROM alpha_beras";      
+      $sql_alpha="SELECT * FROM alpha_beras";
+      $sql="SELECT luas_tanam,jml_penduduk,luas_sawah FROM beras";
     } elseif($_POST["komoditas"] == "JAGUNG"){
       $sql_alpha="SELECT * FROM alpha_jagung";
+      $sql="SELECT luas_tanam,jml_penduduk,luas_sawah FROM jagung";
     } elseif($_POST["komoditas"] == "KEDELAI"){
       $sql_alpha="SELECT * FROM alpha_kedelai";
+      $sql="SELECT luas_tanam,jml_penduduk,luas_sawah FROM kedelai";
     } elseif($_POST["komoditas"] == "BAWANG MERAH"){
       $sql_alpha="SELECT * FROM alpha_bawang_merah";
+      $sql="SELECT luas_tanam,jml_penduduk,luas_sawah FROM bawang_merah";
     } elseif($_POST["komoditas"] == "CABE BESAR"){
       $sql_alpha="SELECT * FROM alpha_cabe_besar";
+      $sql="SELECT luas_tanam,jml_penduduk,luas_sawah FROM cabe_besar";
     } else{
       $sql_alpha="SELECT * FROM alpha_cabe_rawit";
+      $sql="SELECT luas_tanam,jml_penduduk,luas_sawah FROM cabe_rawit";
     }
 
     $alpha = array();
@@ -49,14 +55,33 @@
     // echo "<br>";
     
 
-    $sql="SELECT luas_tanam,jml_penduduk,luas_sawah FROM beras";
-    $data_training = array(); 
+    
+    
 
+    $var_normalisasi = array();
+    if($_POST['komoditas'] == "BERAS"){
+      $var_normalisasi = array(6,7,5);
+    } elseif($_POST['komoditas'] == "JAGUNG"){
+      $var_normalisasi = array(6,7,5);
+    } elseif($_POST['komoditas'] == "KEDELAI"){
+      $var_normalisasi = array(4,7,5);
+    } elseif($_POST['komoditas'] == "BAWANG MERAH"){
+      $var_normalisasi = array(4,7,6);
+    } elseif($_POST['komoditas'] == "CABE BESAR"){
+      $var_normalisasi = array(4,7,6);
+    } else {
+      $var_normalisasi = array(4,7,6);
+    }
+
+    $data_training = array(); 
     if ($result=mysqli_query($link,$sql)){
       while ($row=mysqli_fetch_row($result)){
-        $luas_tanam_norm = ($row[0] - $min_value) / ($max_value - $min_value);
-        $jml_penduduk_norm = ($row[1] - $min_value) / ($max_value - $min_value);
-        $luas_lahan_norm = ($row[2] - $min_value) / ($max_value - $min_value);
+        $luas_tanam_norm = ($row[0] / pow(10,$var_normalisasi[0]));
+        $jml_penduduk_norm = ($row[1] / pow(10,$var_normalisasi[1]));
+        $luas_lahan_norm = ($row[2] / pow(10,$var_normalisasi[2]));
+        // $luas_tanam_norm = ($row[0] - $min_value) / ($max_value - $min_value);
+        // $jml_penduduk_norm = ($row[1] - $min_value) / ($max_value - $min_value);
+        // $luas_lahan_norm = ($row[2] - $min_value) / ($max_value - $min_value);
         array_push($data_training, array($luas_tanam_norm, $jml_penduduk_norm, $luas_lahan_norm));       
       }
     }
@@ -65,10 +90,16 @@
     $data_test_asli = array($_POST["luas_tanam"],$_POST["jml_penduduk"],$_POST["luas_lahan"]);
 
     $data_test = array();
-    foreach ($data_test_asli as $test) {
-      array_push($data_test, ($test - $min_value) / ($max_value - $min_value));
+    
+    // foreach ($data_test_asli as $test) {
+    //   array_push($data_test, ($test - $min_value) / ($max_value - $min_value));
+    // }
+    for ($i=0; $i < count($var_normalisasi) ; $i++) { 
+      array_push($data_test, $data_test_asli[$i] / pow(10,$var_normalisasi[$i]));
     }
-    // print_r($data_test);
+    // print_r($data_test_asli);
+    print_r($data_test);
+
 
     // add data testing
     // $data_test = array(0.009641966, 0.987244281, 0);   
@@ -97,15 +128,21 @@
     for($i=0 ; $i < count($kernel_test) ; $i++){
       $hessian_test[$i] = $kernel_test[$i]+pow($lambda,2);
     }
-    // print_r($jarak_test);
+    print_r($jarak_test);
 
     // count estimation
     $estimasi = 0;
     for($i=0 ; $i < count($hessian_test) ; $i++){
       $estimasi += $alpha[$i]*$hessian_test[$i];
     }
+    // echo $estimasi;
 
-    $estimasi_denorm = ($estimasi*($max_value - $min_value)) + $min_value;
+    // $estimasi_denorm = ($estimasi*($max_value - $min_value)) + $min_value;
+    if($_POST['komoditas'] == "KEDELAI"){
+      $estimasi_denorm = $estimasi*pow(10,4);
+    } else {
+      $estimasi_denorm = $estimasi*pow(10,6);
+    }    
     $txt_estimasi = number_format((float)$estimasi_denorm,2,'.','');
 
     // echo "<br>";

@@ -826,11 +826,23 @@ session_destroy();
           </div>
 
           <div class="col-lg-3 col-md-6 footer-newsletter">
-            <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna veniam enim veniam illum dolore legam minim quorum culpa amet magna export quem marada parida nodela caramase seza.</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit"  value="Subscribe">
-            </form>
+            <h4>Lokasi</h4>
+            
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3YfpZ3r9BuJiAR1oD2AQqRWIcrcK88wA&language=ja&region=JP">
+            </script>
+            <script type="text/javascript">              
+              function initialize() {
+                var position = new google.maps.LatLng(-34.397, 150.644);
+                var myOptions = {
+                  zoom: 10,
+                  center: position,
+                  mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                var map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
+              }
+              google.maps.event.addDomListener(window, "load", initialize);
+            </script>
+            <div id="map_canvas"></div>
           </div>
 
         </div>

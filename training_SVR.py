@@ -102,11 +102,11 @@ def calc_dist(array1, array2):
     return res
 
 # method get_kernel_rbf to calculate the value of kernel RBF from data training
-def get_kernel_rbf(data_dist,theta):
+def get_kernel_rbf(data_dist,sigma):
     kernel = np.zeros_like(data_dist)
     for i in range(len(data_dist)):
         for j in range(len(data_dist[i])):
-            kernel[i][j] = np.exp(-(data_dist[i][j]/(2*np.power(theta,2))))
+            kernel[i][j] = np.exp(-(data_dist[i][j]/(2*np.power(sigma,2))))
     return kernel
 
 def get_hessian(kernel_data,lamda):
@@ -161,10 +161,10 @@ def select_db(komoditas):
 # MAIN
 start_time = time.time()
 C_value = 100
-cLR = 0.05
+cLR = 0.06
 #epsilon = 0.00001
 epsilon = 0.001
-sigma = 0.5
+sigma = 0.3
 lamda = 0.1
 iter_max =50000
 dataTraining = []
@@ -175,7 +175,7 @@ max_data = 0
 min_data = 0
 y_prediksi = []
 tahun = []
-prop = 0.8
+prop = 1
 def main(input_komoditas):
     komoditas = input_komoditas
     
@@ -184,9 +184,6 @@ def main(input_komoditas):
     dataAll, tahun = select_db(komoditas)
     
     
-    
-    #for data in dataTraining:
-    #    print(data)
     
     #cursor = db.cursor()
     #sql = "INSERT INTO dataAll VALUES (%d %d %d %d %d)"
@@ -204,20 +201,23 @@ def main(input_komoditas):
     #print(x_training)
     #print(x_testing)
     
+    #for data in dataTraining:
+        #print(data)
+    
     #for data in data_normalisasi:
     #    print(data)
     
     jarak = get_dist(dataTraining)
-    #for data in jarak:
-    #    print(data)
+    for data in jarak:
+        print(data)
     
     kernel = get_kernel_rbf(jarak,sigma)
     #for data in kernel:
-    #    print(data)
+        #print(data)
     
     hessian_matrix = get_hessian(kernel,lamda)
     #for data in hessian_matrix:
-    #    print(data)
+        #print(data)
     
     # SEQUENTIAL LEARNING
     
@@ -267,7 +267,7 @@ def main(input_komoditas):
         #print(max(delta_alpha_star))
         #print(max(delta_alpha))
         for i in range(len(y_prediksi)):
-            y_prediksi[i] = np.sum([H*(alp_s - alp) for H,alp_s,alp in zip(hessian_matrix[i],alpha_star,alpha)])
+            y_prediksi[i] = np.sum( [H*(alp_s - alp) for H,alp_s,alp in zip(hessian_matrix[i],alpha_star,alpha)])
             
         if(((max(delta_alpha_star) < epsilon) and (max(delta_alpha) < epsilon)) or (x > iter_max)):
             #print(delta_alpha_star)

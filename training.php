@@ -6,7 +6,13 @@
 	// $cmd = "$python $pyscript";
 	ini_set('max_execution_time', 180);
 	$str_komoditas = strtolower($_POST['komoditas']);
-	if($_POST['komoditas'] == "BAWANG MERAH"){      
+	if($_POST['komoditas'] == "BERAS"){
+      $str_komoditas = "beras";
+    } elseif($_POST['komoditas'] == "JAGUNG"){
+      $str_komoditas = "jagung";
+    } elseif($_POST['komoditas'] == "KEDELAI"){
+      $str_komoditas = "kedelai";
+	} elseif($_POST['komoditas'] == "BAWANG MERAH"){      
       $str_komoditas = "bawang_merah";
     } elseif($_POST['komoditas'] == "CABE BESAR"){
       $str_komoditas = "cabe_besar";
@@ -14,6 +20,7 @@
       $str_komoditas = "cabe_rawit";
     }
 	$str_input = "python -c \"import training_SVR; print training_SVR.main('".$str_komoditas."')\"";
+	echo "sukses";
 	// shell_exec("python -c \"import training_SVR; print training_SVR.main('jagung')\"");	
 	shell_exec($str_input);
 	$time_end = microtime(true);

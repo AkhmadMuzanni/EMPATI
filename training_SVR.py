@@ -161,7 +161,7 @@ def select_db(komoditas):
 # MAIN
 start_time = time.time()
 C_value = 100
-cLR = 0.06
+cLR = 0.05
 #epsilon = 0.00001
 epsilon = 0.001
 sigma = 0.3
@@ -175,7 +175,7 @@ max_data = 0
 min_data = 0
 y_prediksi = []
 tahun = []
-prop = 1
+prop = 0.8
 def main(input_komoditas):
     komoditas = input_komoditas
     
@@ -208,8 +208,8 @@ def main(input_komoditas):
     #    print(data)
     
     jarak = get_dist(dataTraining)
-    for data in jarak:
-        print(data)
+    #for data in jarak:
+        #print(data)
     
     kernel = get_kernel_rbf(jarak,sigma)
     #for data in kernel:
@@ -249,7 +249,9 @@ def main(input_komoditas):
             E_value[i] = y[i] - sum_prod
         #print("E Value")
         #print(E_value)
-        
+        if (x < 2):
+            print(x)
+            print(E_value)
         # 2.2 : Compute delta alpha and delta alpha star    
         delta_alpha_star = [min(max(gamma*(E - epsilon), -A), C_value - A) for E,A in zip(E_value, alpha_star)]
         delta_alpha = [min(max(gamma*(-E - epsilon), -A), C_value - A) for E,A in zip(E_value, alpha)]
@@ -282,12 +284,20 @@ def main(input_komoditas):
             #iterate = False
             #print("Iterasi ke-" + str(x-1))
         #print(min_mse)
+        #if (x < 2):
+            #print(x)
+            
         x = x+1
     print("ITERASI = "+str(x))
     # Find the result of prediction
     #print("Hasil Prediksi")
     #print(np.sum(alpha_star))
-    
+    print(E_value)
+    print(delta_alpha)
+    print(delta_alpha_star)
+    print(alpha)
+    print(alpha_star)
+    print(d_alpha)
     max_data = float(get_max(dataAll))
     min_data = float(get_min(dataAll))
     y_denorm = np.zeros_like(y_prediksi)
@@ -308,8 +318,10 @@ def main(input_komoditas):
     
     #print(delta_alpha_star)
     #print(delta_alpha)
+    
     #print(alpha_star)
     #print(alpha)
+    
     #print(y_prediksi)
     #print(y_denorm)
     #print(min_mse)
@@ -327,4 +339,4 @@ def main(input_komoditas):
     
     #def get_hessian():
     #    return hessian_matrix
-#dataTraining,dataTesting,alpha,alpha_star,max_data,min_data,y_prediksi,tahun = main("kedelai")
+#dataTraining,dataTesting,alpha,alpha_star,max_data,min_data,y_prediksi,tahun = main("beras")

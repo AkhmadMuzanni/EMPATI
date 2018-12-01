@@ -21,8 +21,10 @@ def testing(kom):
         data_normal.append(data)
     jarak_all = tr.get_dist(data_normal)
     
+    print(dataTesting)
     # slice distance for data testing
     jarak_testing = jarak_all[len(dataTraining):,:len(dataTraining)]
+    #print(jarak_testing)
     
     # calculate the value of kernel RBF for data testing
     kernel_testing = tr.get_kernel_rbf(jarak_testing,tr.sigma)
@@ -34,7 +36,7 @@ def testing(kom):
     y_pred_test = [0.0] * len(dataTesting)
     for i in range(len(y_pred_test)):
         y_pred_test[i] = np.sum([H*(alp_s - alp) for H,alp_s,alp in zip(hessian_testing[i],alpha_star,alpha)])
-        print([(alp_s - alp) for alp_s,alp in zip(alpha_star,alpha)])
+        #print([(alp_s - alp) for alp_s,alp in zip(alpha_star,alpha)])
         #print(alpha_star[i] - alpha[i])
     
     # denormalization from y prediction
@@ -54,8 +56,8 @@ def testing(kom):
     #thn = range(2004,2018)
     #print(thn)
     
-    print("KOMODITAS = " + kom)
-    print("MAX_ITER = " + str(tr.iter_max))
+    #print("KOMODITAS = " + kom)
+    #print("MAX_ITER = " + str(tr.iter_max))
     #print("C = " + str(tr.C_value))
     #print("SIGMA = " + str(tr.sigma))
     #print("LAMBDA = " + str(tr.lamda))
@@ -77,7 +79,7 @@ def testing(kom):
     
     '''
     mae_testing = tr.calc_MAE(y_pred_test, np.transpose(dataTesting)[3])
-    print("MAE TESTING = " + str(mae_testing))
+    #print("MAE TESTING = " + str(mae_testing))
     
     # plotting process
     #print(np.transpose(dataTraining)[3])
@@ -87,14 +89,14 @@ def testing(kom):
     plt.plot(tahun, np.transpose(data_normal)[3], color="green", label="Aktual")
     plt.legend()
     #plt.text(0,0,"Testing")
-    plt.show()
+    #plt.show()
     
     
-    print("waktu = " + str(time.time() - tr.start_time))
-    print("")
+    #print("waktu = " + str(time.time() - tr.start_time))
+    #print("")
     return y_pred_all, np.transpose(data_normal)[3]
 
-y_pred_all, data_normal = testing("cabe_rawit")
+y_pred_all, data_normal = testing("beras")
 #testing("jagung")
 #testing("kedelai")
 #testing("bawang_merah")

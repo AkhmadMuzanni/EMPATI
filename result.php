@@ -98,7 +98,7 @@
       array_push($data_test, $data_test_asli[$i] / pow(10,$var_normalisasi[$i]));
     }
     // print_r($data_test_asli);
-    print_r($data_test);
+    // print_r($data_test);
 
 
     // add data testing
@@ -128,7 +128,7 @@
     for($i=0 ; $i < count($kernel_test) ; $i++){
       $hessian_test[$i] = $kernel_test[$i]+pow($lambda,2);
     }
-    print_r($jarak_test);
+    // print_r($jarak_test);
 
     // count estimation
     $estimasi = 0;
@@ -237,7 +237,21 @@
                 ?>                
               </a></h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+               <?php 
+                  if ($_POST["komoditas"] == "BERAS") {
+                    echo "Produksi dari tanaman padi di dunia menempati urutan ke-3 setelah jagung dan gandum. Namun, padi merupakan sumber karbohidrat utama untuk mayoritas penduduk di dunia.";
+                  } elseif ($_POST["komoditas"] == "JAGUNG") {
+                    echo "Penduduk Amerika tengah dan Amerika selatan biasanya menggunakan bulir jagung sebagai makanan pokok, begitu juga bagi sebagian penduduk di Kawasan Afrika dan beberapa daerah di Indonesia.";
+                  } elseif ($_POST["komoditas"] == "KEDELAI") {
+                    echo "Kedelai atau yang sering disebut kacang kedelai merupakan salah satu bagian dari tanaman polong-polongan yang digunakan sebagai bahan dasar berbagai macam olahannya seperti tahu, tempe, dan kecap.";
+                  } elseif ($_POST["komoditas"] == "BAWANG MERAH") {
+                    echo "Bawang merah dapat dikonsumsi secara mentah. Selain itu bawang merah biasa digunakan untuk campuran bumbu masakan, acar dan obat-obatan tradisional. Kulit umbinya dapat dijadikan zat pewarna alami.";
+                  } elseif ($_POST["komoditas"] == "CABE BESAR") {
+                    echo "Cabai merah besar merupakan jenis cabai yang memiliki ciri dengan warna merah menyala dan bentuk yang besar, gemuk, panjang, dan memiliki ujung yang lancip. Biasa diproses dengan cara diulek atau diblender.";
+                  } else {
+                    echo "Cabai rawit merupakan salah satu jenis cabai yang memiliki ukuran lebih kecil dan lebih pendek dari jenis cabai lainnya, namun cabai jenis ini mempunyai rasa yang lebih pedas dan tajam.";
+                  }
+                ?>
               </p>
             </div>
           </div>
@@ -269,7 +283,23 @@
                   </div>
                   <div class="form-group row">
                     <div class="col-sm-1"> </div>
-                    <label for="staticEmail" class="col-sm-3 col-form-label">Luas Lahan (Sawah)</label>
+                    <label for="staticEmail" class="col-sm-3 col-form-label">
+                    <?php 
+                      if ($_POST["komoditas"] == "BERAS") {
+                        echo "Luas Lahan (Sawah)";
+                      } elseif ($_POST["komoditas"] == "JAGUNG") {
+                        echo "Luas Lahan (Sawah)";
+                      } elseif ($_POST["komoditas"] == "KEDELAI") {
+                        echo "Luas Lahan (Sawah)";
+                      } elseif ($_POST["komoditas"] == "BAWANG MERAH") {
+                        echo "Luas Lahan (Ladang)";
+                      } elseif ($_POST["komoditas"] == "CABE BESAR") {
+                        echo "Luas Lahan (Ladang)";
+                      } else {
+                        echo "Luas Lahan (Ladang)";
+                      }
+                    ?>
+                    </label>
                     <div class="col-sm-8">
                       <input type="text" readonly class="form-control-plaintext" id="staticEmail" value=<?php echo "\"$_POST[luas_lahan]"." hektar\"";?>>
                     </div>
@@ -306,28 +336,26 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-info">
-            <h3>BizPage</h3>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
+            <h3>EMPATI</h3>
+            <p>EMPATI merupakan Sistem Estimasi Produksi Pangan dan Hortikultura yang dikembangkan oleh Dinas Tanaman Pangan, Hortikultura dan Perkebunan Kabupaten Malang bekerjasama dengan Universitas Brawijaya</p>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Useful Links</h4>
+            <h4>Link Terkait</h4>
             <ul>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Home</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">About us</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Services</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Privacy policy</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="http://tanaman-pangan.malangkab.go.id/">Dinas TPHP</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="http://ub.ac.id/">Universitas Brawijaya</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="http://filkom.ub.ac.id/">Fakultas Ilmu Komputer UB</a></li>
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-contact">
-            <h4>Contact Us</h4>
+            <h4>Kontak Kami</h4>
             <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
+              Jalan Sumedang No. 28 Cokoleo <br>
+              Desa Cepokomulyo, Kecamatan Kepanjen<br>
+              Kabupaten Malang, Jawa Timur <br>
+              <strong>Telp:</strong>(0341) 396893<br>
               <strong>Email:</strong> info@example.com<br>
             </p>
 
@@ -342,11 +370,24 @@
           </div>
 
           <div class="col-lg-3 col-md-6 footer-newsletter">
-            <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna veniam enim veniam illum dolore legam minim quorum culpa amet magna export quem marada parida nodela caramase seza.</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit"  value="Subscribe">
-            </form>
+            <h4>Lokasi</h4>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/place/Dinas+Tanaman+Pangan,+Hortikultura+dan+Perkebunan/@-8.1364637,112.5646613,17z/data=!4m5!3m4!1s0x2e789f06b6619d21:0xcaf474037089b3e3!8m2!3d-8.136469!4d112.56685"><img src="img/rsz_maps1.png"></a>
+            
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3YfpZ3r9BuJiAR1oD2AQqRWIcrcK88wA&language=ja&region=JP">
+            </script>
+            <script type="text/javascript">              
+              function initialize() {
+                var position = new google.maps.LatLng(-34.397, 150.644);
+                var myOptions = {
+                  zoom: 10,
+                  center: position,
+                  mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                var map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
+              }
+              google.maps.event.addDomListener(window, "load", initialize);
+            </script>
+            <div id="map_canvas"></div>
           </div>
 
         </div>

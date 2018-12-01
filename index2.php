@@ -56,7 +56,8 @@ session_destroy();
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li class="menu-active"><a href="#intro">Home</a></li>
-          <li><a href="#about">Estimasi</a></li>          
+          <li><a href="#about">Estimasi</a></li>
+          <li><a href="#services">Profil</a></li>
           <li><a href="#portfolio">Data</a></li>
           <li><a href="#team">Pengembang</a></li>          
           <li><a href="#contact">Kontak</a></li>
@@ -125,7 +126,7 @@ session_destroy();
               </div>
               <h2 class="title"><a href="#" data-toggle="modal" data-target="#modalInput" id="btn_beras">BERAS</a></h2>
               <p>
-                Produksi dari tanaman padi di dunia menempati urutan ke-3 setelah jagung dan gandum. Namun, padi merupakan sumber karbohidrat utama untuk mayoritas penduduk di dunia. 
+                Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
               </p>
             </div>
           </div>
@@ -138,7 +139,7 @@ session_destroy();
               </div>
               <h2 class="title"><a href="#" data-toggle="modal" data-target="#modalInput" id="btn_jagung">JAGUNG</a></h2>
               <p>
-                Penduduk Amerika tengah dan Amerika selatan biasanya menggunakan bulir jagung sebagai makanan pokok, begitu juga bagi sebagian penduduk di Kawasan Afrika dan beberapa daerah di Indonesia.
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
               </p>
             </div>
           </div>
@@ -151,7 +152,7 @@ session_destroy();
               </div>
               <h2 class="title"><a href="#" data-toggle="modal" data-target="#modalInput" id="btn_kedelai">KEDELAI</a></h2>
               <p>
-                Kedelai atau yang sering disebut kacang kedelai merupakan salah satu bagian dari tanaman polong-polongan yang digunakan sebagai bahan dasar berbagai macam olahannya seperti tahu, tempe, dan kecap.
+                Nemo enim ipsam voluptatem quia voluptas sit aut odit aut fugit, sed quia magni dolores eos qui ratione voluptatem sequi nesciunt Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.
               </p>
             </div>
           </div>
@@ -168,7 +169,7 @@ session_destroy();
               </div>
               <h2 class="title"><a href="#" data-toggle="modal" data-target="#modalInput" id="btn_bawang_merah">BAWANG MERAH</a></h2>
               <p>
-                Bawang merah dapat dikonsumsi secara mentah. Selain itu bawang merah biasa digunakan untuk campuran bumbu masakan, acar dan obat-obatan tradisional. Kulit umbinya dapat dijadikan zat pewarna alami.
+                Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
               </p>
             </div>
           </div>
@@ -181,7 +182,7 @@ session_destroy();
               </div>
               <h2 class="title"><a href="#" data-toggle="modal" data-target="#modalInput" id="btn_cabe_besar">CABE BESAR</a></h2>
               <p>
-                Cabai merah besar merupakan jenis cabai yang memiliki ciri dengan warna merah menyala dan bentuk yang besar, gemuk, panjang, dan memiliki ujung yang lancip. Biasa diproses dengan cara diulek atau diblender.
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
               </p>
             </div>
           </div>
@@ -194,7 +195,7 @@ session_destroy();
               </div>
               <h2 class="title"><a href="#" data-toggle="modal" data-target="#modalInput" id="btn_cabe_rawit">CABE RAWIT</a></h2>
               <p>
-                Cabai rawit merupakan salah satu jenis cabai yang memiliki ukuran lebih kecil dan lebih pendek dari jenis cabai lainnya, namun cabai jenis ini mempunyai rasa yang lebih pedas dan tajam. 
+                Nemo enim ipsam voluptatem quia voluptas sit aut odit aut fugit, sed quia magni dolores eos qui ratione voluptatem sequi nesciunt Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.
               </p>
             </div>
           </div>
@@ -237,7 +238,7 @@ session_destroy();
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label class="col-form-label col-sm-5" id="labelModal">Luas Lahan (Sawah):</label>
+                  <label class="col-form-label col-sm-5">Luas Lahan (Sawah):</label>
                   <div class="col-sm-7">
                     <input type="number" class="form-control" placeholder="Luas Lahan (Sawah)" id="luas_lahan" name="luas_lahan">
                   </div>
@@ -257,6 +258,151 @@ session_destroy();
 
 
 
+
+
+    <!--==========================
+      Services Section
+    ============================-->
+    <section id="services">
+      <div class="container">
+
+        <header class="section-header wow fadeInUp">
+          <h3>Services</h3>
+          <p>Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus, ad pro quaestio laboramus. Ei ubique vivendum pro. At ius nisl accusam lorenta zanos paradigno tridexa panatarel.</p>
+        </header>
+
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+            <div class="icon"><i class="ion-ios-analytics-outline"></i></div>
+            <h4 class="title"><a href="">Lorem Ipsum</a></h4>
+            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+          </div>
+          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+            <div class="icon"><i class="ion-ios-bookmarks-outline"></i></div>
+            <h4 class="title"><a href="">Dolor Sitema</a></h4>
+            <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+          </div>
+          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+            <div class="icon"><i class="ion-ios-paper-outline"></i></div>
+            <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
+            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+          </div>
+          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+            <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
+            <h4 class="title"><a href="">Magni Dolores</a></h4>
+            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+          </div>
+          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+            <div class="icon"><i class="ion-ios-barcode-outline"></i></div>
+            <h4 class="title"><a href="">Nemo Enim</a></h4>
+            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+          </div>
+          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+            <div class="icon"><i class="ion-ios-people-outline"></i></div>
+            <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
+            <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- #services -->
+
+    <!--==========================
+      Call To Action Section
+    ============================-->
+    <section id="call-to-action" class="wow fadeIn">
+      <div class="container text-center">
+        <h3>Call To Action</h3>
+        <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <a class="cta-btn" href="#">Call To Action</a>
+      </div>
+    </section><!-- #call-to-action -->
+
+    <!--==========================
+      Skills Section
+    ============================-->
+    <section id="skills">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>Our Skills</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</p>
+        </header>
+
+        <div class="skills-content">
+
+          <div class="progress">
+            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+              <span class="skill">HTML <i class="val">100%</i></span>
+            </div>
+          </div>
+
+          <div class="progress">
+            <div class="progress-bar bg-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+              <span class="skill">CSS <i class="val">90%</i></span>
+            </div>
+          </div>
+
+          <div class="progress">
+            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+              <span class="skill">JavaScript <i class="val">75%</i></span>
+            </div>
+          </div>
+
+          <div class="progress">
+            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+              <span class="skill">Photoshop <i class="val">55%</i></span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!--==========================
+      Facts Section
+    ============================-->
+    <section id="facts"  class="wow fadeIn">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>Facts</h3>
+          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+        </header>
+
+        <div class="row counters">
+
+  				<div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">274</span>
+            <p>Clients</p>
+  				</div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">421</span>
+            <p>Projects</p>
+  				</div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">1,364</span>
+            <p>Hours Of Support</p>
+  				</div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">18</span>
+            <p>Hard Workers</p>
+  				</div>
+
+  			</div>
+
+        <div class="facts-img">
+          <img src="img/facts-img.png" alt="" class="img-fluid">
+        </div>
+
+      </div>
+    </section><!-- #facts -->
 
     <!--==========================
       Portfolio Section
@@ -382,6 +528,102 @@ session_destroy();
     </section><!-- #portfolio -->
 
     <!--==========================
+      Clients Section
+    ============================-->
+    <section id="clients" class="wow fadeInUp">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>Our Clients</h3>
+        </header>
+
+        <div class="owl-carousel clients-carousel">
+          <img src="img/clients/client-1.png" alt="">
+          <img src="img/clients/client-2.png" alt="">
+          <img src="img/clients/client-3.png" alt="">
+          <img src="img/clients/client-4.png" alt="">
+          <img src="img/clients/client-5.png" alt="">
+          <img src="img/clients/client-6.png" alt="">
+          <img src="img/clients/client-7.png" alt="">
+          <img src="img/clients/client-8.png" alt="">
+        </div>
+
+      </div>
+    </section><!-- #clients -->
+
+    <!--==========================
+      Clients Section
+    ============================-->
+    <section id="testimonials" class="section-bg wow fadeInUp">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>Testimonials</h3>
+        </header>
+
+        <div class="owl-carousel testimonials-carousel">
+
+          <div class="testimonial-item">
+            <img src="img/testimonial-1.jpg" class="testimonial-img" alt="">
+            <h3>Saul Goodman</h3>
+            <h4>Ceo &amp; Founder</h4>
+            <p>
+              <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">
+              Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+              <img src="img/quote-sign-right.png" class="quote-sign-right" alt="">
+            </p>
+          </div>
+
+          <div class="testimonial-item">
+            <img src="img/testimonial-2.jpg" class="testimonial-img" alt="">
+            <h3>Sara Wilsson</h3>
+            <h4>Designer</h4>
+            <p>
+              <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">
+              Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+              <img src="img/quote-sign-right.png" class="quote-sign-right" alt="">
+            </p>
+          </div>
+
+          <div class="testimonial-item">
+            <img src="img/testimonial-3.jpg" class="testimonial-img" alt="">
+            <h3>Jena Karlis</h3>
+            <h4>Store Owner</h4>
+            <p>
+              <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">
+              Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+              <img src="img/quote-sign-right.png" class="quote-sign-right" alt="">
+            </p>
+          </div>
+
+          <div class="testimonial-item">
+            <img src="img/testimonial-4.jpg" class="testimonial-img" alt="">
+            <h3>Matt Brandon</h3>
+            <h4>Freelancer</h4>
+            <p>
+              <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">
+              Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+              <img src="img/quote-sign-right.png" class="quote-sign-right" alt="">
+            </p>
+          </div>
+
+          <div class="testimonial-item">
+            <img src="img/testimonial-5.jpg" class="testimonial-img" alt="">
+            <h3>John Larson</h3>
+            <h4>Entrepreneur</h4>
+            <p>
+              <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">
+              Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+              <img src="img/quote-sign-right.png" class="quote-sign-right" alt="">
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- #testimonials -->
+
+    <!--==========================
       Team Section
     ============================-->
     <section id="team">
@@ -471,6 +713,74 @@ session_destroy();
       </div>
     </section><!-- #team -->
 
+    <!--==========================
+      Contact Section
+    ============================-->
+    <section id="contact" class="section-bg wow fadeInUp">
+      <div class="container">
+
+        <div class="section-header">
+          <h3>Contact Us</h3>
+          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+        </div>
+
+        <div class="row contact-info">
+
+          <div class="col-md-4">
+            <div class="contact-address">
+              <i class="ion-ios-location-outline"></i>
+              <h3>Address</h3>
+              <address>A108 Adam Street, NY 535022, USA</address>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-phone">
+              <i class="ion-ios-telephone-outline"></i>
+              <h3>Phone Number</h3>
+              <p><a href="tel:+155895548855">+1 5589 55488 55</a></p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-email">
+              <i class="ion-ios-email-outline"></i>
+              <h3>Email</h3>
+              <p><a href="mailto:info@example.com">info@example.com</a></p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="form">
+          <div id="sendmessage">Your message has been sent. Thank you!</div>
+          <div id="errormessage"></div>
+          <form action="" method="post" role="form" class="contactForm">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group col-md-6">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                <div class="validation"></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+              <div class="validation"></div>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+              <div class="validation"></div>
+            </div>
+            <div class="text-center"><button type="submit">Send Message</button></div>
+          </form>
+        </div>
+
+      </div>
+    </section><!-- #contact -->
+
   </main>
 
   <!--==========================
@@ -517,7 +827,7 @@ session_destroy();
 
           <div class="col-lg-3 col-md-6 footer-newsletter">
             <h4>Lokasi</h4>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/place/Dinas+Tanaman+Pangan,+Hortikultura+dan+Perkebunan/@-8.1364637,112.5646613,17z/data=!4m5!3m4!1s0x2e789f06b6619d21:0xcaf474037089b3e3!8m2!3d-8.136469!4d112.56685"><img src="img/rsz_maps1.png"></a>
+            
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3YfpZ3r9BuJiAR1oD2AQqRWIcrcK88wA&language=ja&region=JP">
             </script>
             <script type="text/javascript">              
@@ -580,33 +890,21 @@ session_destroy();
   <script type="text/javascript">    
     $('#btn_beras').on('click',function(){
       document.getElementById("komoditas").value = "BERAS";
-      document.getElementById("labelModal").value = "Luas Lahan (Sawah)";
-      document.getElementById("luas_lahan").placeholder = "Luas Lahan (Sawah)";
     });
     $('#btn_jagung').on('click',function(){
       document.getElementById("komoditas").value = "JAGUNG";
-      document.getElementById("labelModal").innerHTML = "Luas Lahan (Sawah)";
-      document.getElementById("luas_lahan").placeholder = "Luas Lahan (Sawah)";
     });
     $('#btn_kedelai').on('click',function(){
       document.getElementById("komoditas").value = "KEDELAI";
-      document.getElementById("labelModal").innerHTML = "Luas Lahan (Sawah)";
-      document.getElementById("luas_lahan").placeholder = "Luas Lahan (Sawah)";
     });
     $('#btn_bawang_merah').on('click',function(){
       document.getElementById("komoditas").value = "BAWANG MERAH";
-      document.getElementById("labelModal").innerHTML = "Luas Lahan (Ladang)";
-      document.getElementById("luas_lahan").placeholder = "Luas Lahan (Ladang)";
     });
     $('#btn_cabe_besar').on('click',function(){
       document.getElementById("komoditas").value = "CABE BESAR";
-      document.getElementById("labelModal").innerHTML = "Luas Lahan (Ladang)";
-      document.getElementById("luas_lahan").placeholder = "Luas Lahan (Ladang)";
     });
     $('#btn_cabe_rawit').on('click',function(){
       document.getElementById("komoditas").value = "CABE RAWIT";
-      document.getElementById("labelModal").innerHTML = "Luas Lahan (Ladang)";
-      document.getElementById("luas_lahan").placeholder = "Luas Lahan (Ladang)";
     });
     
   </script>

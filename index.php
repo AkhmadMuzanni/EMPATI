@@ -68,7 +68,7 @@ session_destroy();
   <!--==========================
     Intro Section
   ============================-->
-  <section id="intro">
+  <section id="intro" class="intro">
     <div class="intro-container">
       <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
 
